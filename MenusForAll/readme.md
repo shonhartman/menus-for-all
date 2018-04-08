@@ -1,4 +1,4 @@
-![](http://wes.io/dgAQ/content)
+<!-- ![](http://wes.io/dgAQ/content)
 
 # React For Beginners — [ReactForBeginners.com](https://ReactForBeginners.com)
 
@@ -68,4 +68,4 @@ RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
-```
+``` -->
