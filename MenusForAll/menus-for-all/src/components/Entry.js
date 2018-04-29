@@ -7,7 +7,9 @@ class Entry extends React.Component {
             <div className="inventory">
                 <h2>Menu Entry</h2>
                 <AddMenuForm addMenu={this.props.addMenu} />
+                <button onClick={this.props.loadSampleMenu}>Load Menu</button>
             </div>
+
 
         )
     }

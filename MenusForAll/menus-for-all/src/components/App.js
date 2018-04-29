@@ -1,11 +1,13 @@
 import React from "react";
 import Header from "./Header"
 import Entry from "./Entry"
+import Menu from "./Menu"
+import sampleMenu from "../sample-menu";
 
 
 class App extends React.Component {
     state = {
-        menus: {}
+        menu: {}
     };
     addMenu = menu => {
         // 1. Take a copy of the existing state
@@ -15,13 +17,22 @@ class App extends React.Component {
         // 3. Set the new menus object to state
         this.setState({ menus });
     };
+    loadSampleMenu = () => {
+        this.setState({ menu: sampleMenu });
+    }
     render() {
         return (
             <div className="catch-of-the-day">
                 <div className="menu">
                     <Header restaurantName="The Meteor" />
+                    <ul className="fishes">
+                        {Object.keys(this.state.menu).map (key => <Menu key={key} />) }
+                    </ul>
                 </div>
-                <Entry addMenu={this.addMenu} />
+                <Entry
+                    addMenu={this.addMenu}
+                    loadSampleMenu={this.loadSampleMenu}
+                />
                 {/* <Inventory />
                 <Order /> */}
             </div>
