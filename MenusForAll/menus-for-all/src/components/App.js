@@ -3,12 +3,26 @@ import Header from "./Header"
 import Entry from "./Entry"
 import Menu from "./Menu"
 import sampleMenu from "../sample-menu";
+import base from "../base";
 
 
 class App extends React.Component {
     state = {
         menu: {}
     };
+
+    componentDidMount() {
+        const { params } = this.props.match;
+        this.ref = base.syncState(`${params.storeId}/menus`, {
+            context: this,
+            state: 'menu'
+        });
+    }
+
+    componentWillUnmount() {
+        base.removeBinding(this.ref);
+    }
+
     addMenu = menu => {
         // 1. Take a copy of the existing state
         const menus = { ...this.state.menus };
@@ -26,7 +40,7 @@ class App extends React.Component {
                 <div className="menu">
                     <Header restaurantName="The Meteor" />
                     <ul className="fishes">
-                        {Object.keys(this.state.menu).map (key => <Menu key={key} />) }
+                        {Object.keys(this.state.menu).map (key => <Menu key={key} details={this.state.menu[key]} />) }
                     </ul>
                 </div>
                 <Entry
