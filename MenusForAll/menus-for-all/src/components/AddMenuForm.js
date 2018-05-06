@@ -1,4 +1,5 @@
 import React from "react";
+import Menu from "./Menu"
 
 class AddMenuForm extends React.Component {
     nameRef = React.createRef();
@@ -13,7 +14,7 @@ class AddMenuForm extends React.Component {
             name: this.nameRef.current.value,
             price: parseFloat(this.priceRef.current.value),
             desc: this.descRef.current.value,
-            image: this.imageRef.current.value
+            // image: this.imageRef.current.value
         };
         this.props.addMenu(menu);
         // refresh the form
@@ -22,6 +23,7 @@ class AddMenuForm extends React.Component {
 
     render() {
         return (
+            <div>
             <form className="fish-edit" onSubmit={this.createFish}>
                 <input name="name" ref={this.nameRef} type="text" placeholder="Name" />
                 <input name="price" ref={this.priceRef} type="text" placeholder="Price" />
@@ -33,6 +35,11 @@ class AddMenuForm extends React.Component {
                 {/* <input name="image" type="text" ref={this.imageRef} placeholder="Image" /> */}
                 <button type="submit">+ Add Menu</button>
             </form>
+            {/* ATTEMPT AT DISPLAYING STATE TO NO AVAIL */}
+            {/* <ul className="fishes">
+                {Object.keys(this.state.menu).map (key => <Menu key={key} details={this.state.menu[key]} />) }
+            </ul> */}
+        </div>
 
         );
     }

@@ -13,24 +13,41 @@ class App extends React.Component {
 
     componentDidMount() {
         const { params } = this.props.match;
-        this.ref = base.syncState(`${params.storeId}/menus`, {
+        this.ref = base.syncState(`${params.storeId}/menu`, {
             context: this,
             state: 'menu'
         });
+    }
+
+    componentDidUpdate() {
+        console.log(this.state.menu);
     }
 
     componentWillUnmount() {
         base.removeBinding(this.ref);
     }
 
+
+
     addMenu = menu => {
         // 1. Take a copy of the existing state
-        const menus = { ...this.state.menus };
+        const menuItems = { ...this.state.menu };
         // 2. Add our new menu to that menus variable
-        menus[`menu${Date.now()}`] = menu; //TODO : maybe change this id???
-        // 3. Set the new menus object to state
-        this.setState({ menus });
+        menuItems[`menu${Date.now()}`] = menu; //TODO : maybe change this id???
+        // 3. Set the new restaurantMenus object to state
+        this.setState({ menu });
     };
+
+    updateMenu = (key, updatedMenu) => {
+        // 1. take a copy of the current state
+        const menu = { ...this.state.menu };
+        // console.log(menu);
+        // 2. update that state
+        menu[key] = updatedMenu;
+        // 3. set that to state
+        this.setState({ menu });
+    }
+
     loadSampleMenu = () => {
         this.setState({ menu: sampleMenu });
     }
@@ -45,7 +62,9 @@ class App extends React.Component {
                 </div>
                 <Entry
                     addMenu={this.addMenu}
+                    updateMenu={this.updateMenu}
                     loadSampleMenu={this.loadSampleMenu}
+                    menu={this.state.menu}
                 />
                 {/* <Inventory />
                 <Order /> */}
