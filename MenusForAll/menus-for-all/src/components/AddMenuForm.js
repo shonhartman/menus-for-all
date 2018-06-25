@@ -7,16 +7,23 @@ class AddMenuForm extends React.Component {
     descRef = React.createRef();
     imageRef = React.createRef();
 
-    createFish = (event) => {
+    createEntry = (event) => {
         // 1. stop the form from submitting
         event.preventDefault();
-        const menu = {
+        let stringPrice = this.priceRef.current.value;
+        let numberPrice;
+        if (!parseFloat(stringPrice)) {
+            numberPrice = '';
+        } else {
+            numberPrice = parseFloat(stringPrice);
+        }
+        const menuItem = {
             name: this.nameRef.current.value,
-            price: parseFloat(this.priceRef.current.value),
+            price: numberPrice,
             desc: this.descRef.current.value,
             // image: this.imageRef.current.value
         };
-        this.props.addMenu(menu);
+        this.props.addMenuItem(menuItem);
         // refresh the form
         event.currentTarget.reset();
     }
@@ -24,7 +31,7 @@ class AddMenuForm extends React.Component {
     render() {
         return (
             <div>
-            <form className="fish-edit" onSubmit={this.createFish}>
+            <form className="fish-edit" onSubmit={this.createEntry}>
                 <input name="name" ref={this.nameRef} type="text" placeholder="Name" />
                 <input name="price" ref={this.priceRef} type="text" placeholder="Price" />
                 {/* <select name="status" ref={this.statusRef}>
@@ -33,7 +40,7 @@ class AddMenuForm extends React.Component {
                 </select> */}
                 <textarea name="desc" ref={this.descRef} placeholder="Desc"> </textarea>
                 {/* <input name="image" type="text" ref={this.imageRef} placeholder="Image" /> */}
-                <button type="submit">+ Add Menu</button>
+                <button type="submit">+ Add To Menu</button>
             </form>
             {/* ATTEMPT AT DISPLAYING STATE TO NO AVAIL */}
             {/* <ul className="fishes">

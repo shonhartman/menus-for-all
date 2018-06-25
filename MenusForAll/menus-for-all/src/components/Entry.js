@@ -10,11 +10,12 @@ class Entry extends React.Component {
                 {Object.keys(this.props.menu).map(key => <EditMenuForm
                     menu={this.props.menu[key]}
                     updateMenu={this.props.updateMenu}
+                    deleteMenuItem={this.props.deleteMenuItem}
                     key={key}
                     index={key}
                 />)}
-                <AddMenuForm addMenu={this.props.addMenu} />
-                <button onClick={this.props.loadSampleMenu}>Load Menu</button>
+                <AddMenuForm addMenuItem={this.props.addMenuItem} />
+                {/* <button onClick={this.props.loadSampleMenu}>Load Menu</button> */}
             </div>
         )
     }

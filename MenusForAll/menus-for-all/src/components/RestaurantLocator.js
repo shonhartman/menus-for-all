@@ -1,7 +1,6 @@
 import React from 'react';
 import { format } from 'util';
 import { getLocation } from "../helpers";
-import { fishes } from '../sample-menu';
 
 class RestaurantLocator extends React.Component {
     myInput = React.createRef();
