@@ -22,7 +22,7 @@ class EditMenuForm extends React.Component {
         this.props.deleteMenuItem(this.props.index);
     }
     render () {
-        return  <div className="fish-edit">
+        return  <div className="menu-item-edit">
                     <input type="text" name="name" onChange={this.handleChange} value={this.props.menu.name} />
                     <input type="text" name="price" onChange={this.handlePriceChange} value={this.props.menu.price} />
                     <textarea name="desc" onChange={this.handleChange} value={this.props.menu.desc}></textarea>

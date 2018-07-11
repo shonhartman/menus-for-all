@@ -31,7 +31,7 @@ class AddMenuForm extends React.Component {
     render() {
         return (
             <div>
-            <form className="fish-edit" onSubmit={this.createEntry}>
+            <form className="menu-item-edit" onSubmit={this.createEntry}>
                 <input name="name" ref={this.nameRef} type="text" placeholder="Name" />
                 <input name="price" ref={this.priceRef} type="text" placeholder="Price" />
                 {/* <select name="status" ref={this.statusRef}>
