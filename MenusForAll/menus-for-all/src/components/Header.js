@@ -1,4 +1,5 @@
 import React from "react";
+import RestaurantLocator from "./RestaurantLocator";
 
 class Header extends React.Component {
     render() {

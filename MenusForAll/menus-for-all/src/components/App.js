@@ -14,7 +14,6 @@ class App extends React.Component {
 
     componentDidMount() {
         const { params } = this.props.match;
-        console.log(this.props.match);
         this.ref = base.syncState(`${params.restaurantId}/menu`, {
             context: this,
             state: 'menu'
@@ -68,9 +67,9 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="catch-of-the-day">
+            <div className="menus-for-all">
                 <div className="menu">
-                    <Header restaurantName="The Meteor" />
+                    <Header restaurantName={this.props.match.params.restaurantId} />
                     <ul className="fishes">
                         {Object.keys(this.state.menu).map (key => <Menu key={key} details={this.state.menu[key]} />) }
                     </ul>

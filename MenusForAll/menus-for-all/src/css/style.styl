@@ -26,7 +26,7 @@ header.top
         right -0.5rem
   h3
     margin 0
-    font-size 2rem
+    font-size 1rem
     color orange
     position relative
     display inline-block
@@ -51,7 +51,7 @@ header.top
       bottom 7px
 
 
-.catch-of-the-day
+.menus-for-all
   display flex
   height 90vh
   max-width:1500px
@@ -71,40 +71,40 @@ header.top
     &:first-child
       flex-shrink 1 // take 4x the extra room
       flex-basis 50%
-      transform translateX(50%) rotateY(6deg) translateX(-50%)
+      // transform translateX(50%) rotateY(6deg) translateX(-50%)
     &:nth-child(2)
-      transform translateX(-50%) rotateY(-14deg) translateX(50%)
+      // transform translateX(-50%) rotateY(-14deg) translateX(50%)
       border-left 0
       border-right 0
       min-width 300px
     &:last-child
       flex-shrink 1 // take 4x the extra room
       flex-basis 50%
-      transform translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px)
+      // transform translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px)
 
 // Folding Transforms
 // Take off folding when not checked
-input#fold:not(:checked) ~ #main
-  .catch-of-the-day > *
-      transform none
+// input#fold:not(:checked) ~ #main
+//   .catch-of-the-day > *
+//       transform none
 
-label[for="fold"]
-  position absolute
-  top 1rem
-  left 1rem
-  text-transform uppercase
-  font-size 1.3rem
-  background black
-  color white
-  border 2px solid black
-  cursor pointer
-  padding 0.5rem 1rem
+// label[for="fold"]
+//   position absolute
+//   top 1rem
+//   left 1rem
+//   text-transform uppercase
+//   font-size 1.3rem
+//   background black
+//   color white
+//   border 2px solid black
+//   cursor pointer
+//   padding 0.5rem 1rem
 
-input#fold
-  display none
-  &:checked + label
-    background white
-    color black
+// input#fold
+//   display none
+//   &:checked + label
+//     background white
+//     color black
 
 ul
   list-style none
@@ -185,7 +185,7 @@ ul.order
   margin-top 2rem
   transform translateZ(0);
 
-.menu-fish
+.menu-item
   border-bottom 2px solid black
   border-top 1px solid black
   padding-bottom 2rem
@@ -196,7 +196,7 @@ ul.order
   p
     margin 0
     font-size 1.8rem
-  .fish-name
+  .category
     margin 0
     display flex
     justify-content space-between
