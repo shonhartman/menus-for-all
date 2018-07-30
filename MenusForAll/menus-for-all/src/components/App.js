@@ -70,7 +70,7 @@ class App extends React.Component {
             <div className="menus-for-all">
                 <div className="menu">
                     <Header restaurantName={this.props.match.params.restaurantId} />
-                    <ul className="fishes">
+                    <ul className="menu-listing">
                         {Object.keys(this.state.menu).map (key => <Menu key={key} details={this.state.menu[key]} />) }
                     </ul>
                 </div>

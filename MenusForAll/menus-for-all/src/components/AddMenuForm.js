@@ -43,7 +43,7 @@ class AddMenuForm extends React.Component {
                 <button type="submit">+ Add To Menu</button>
             </form>
             {/* ATTEMPT AT DISPLAYING STATE TO NO AVAIL */}
-            {/* <ul className="fishes">
+            {/* <ul className="menu-listing">
                 {Object.keys(this.state.menu).map (key => <Menu key={key} details={this.state.menu[key]} />) }
             </ul> */}
         </div>

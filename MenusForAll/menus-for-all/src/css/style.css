@@ -249,7 +249,6 @@ h4,
 h5,
 h6 {
   font-weight: normal;
-  font-family: 'haymakerregular', sans-serif;
 }
 h2 {
   text-align: center;
@@ -266,7 +265,7 @@ header.top {
   text-align: center;
 }
 header.top h1 {
-  font-size: 14.4rem;
+  font-size: 6rem;
   line-height: 0.7;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -280,7 +279,7 @@ header.top h1 .ofThe {
   display: -ms-flexbox;
   display: flex;
   font-size: 3rem;
-  color: #f5a623;
+  color: #c35600;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -298,8 +297,8 @@ header.top h1 .ofThe .of {
 }
 header.top h3 {
   margin: 0;
-  font-size: 1rem;
-  color: #f5a623;
+  font-size: 2rem;
+  color: #c35600;
   position: relative;
   display: inline-block;
 }
@@ -319,7 +318,7 @@ header.top h3:after {
   width: 130%;
   height: 1px;
   content: '';
-  top: 5px;
+  top: 15px;
   margin-left: -15%;
 }
 header.top h3:after {
