@@ -11,6 +11,7 @@ const Router = () => (
         <Switch>
             <Route exact path="/" component={ClientMenu} />
             <Route path="/admin" component={RestaurantLocator} />
+            {/* <Route path="/" component={RestaurantLocator} /> */}
             <Route path="/restaurant/:restaurantId" component={App} />
             <Route component={NotFound} />
         </Switch>

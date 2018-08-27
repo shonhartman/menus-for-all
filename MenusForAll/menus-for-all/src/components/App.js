@@ -4,6 +4,8 @@ import Entry from "./Entry"
 import Menu from "./Menu"
 import sampleMenu from "../sample-menu";
 import base from "../base";
+import Router from "./Router";
+
 
 
 class App extends React.Component {

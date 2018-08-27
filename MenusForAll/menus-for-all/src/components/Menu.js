@@ -8,9 +8,9 @@ class Menu extends React.Component {
         return (
             <div className="menu-item">
                 <h3 className="category">{name}
-                    <span className="price">{formatPrice(price)}</span>
+                    <span className="price">starting at {formatPrice(price)}</span>
                 </h3>
-                <p>{desc}</p>
+                <article>{desc}</article>
             </div>
         )
     }

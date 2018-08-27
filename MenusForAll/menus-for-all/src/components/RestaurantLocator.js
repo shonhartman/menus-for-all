@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from "./Router";
 import { format } from 'util';
 import { getLocation } from "../helpers";
 
@@ -10,6 +11,11 @@ class RestaurantLocator extends React.Component {
         event.preventDefault();
         // 2. Get the text from that input
         const restaurantName = this.myInput.current.value;
+        // Set Boolean for admin logged in
+        const admin = true;
+        console.log(admin);
+
+
         // 3. Change the page to /store/whatever-they-entered
         this.props.history.push(`/restaurant/${restaurantName}`);
     }
@@ -27,7 +33,7 @@ class RestaurantLocator extends React.Component {
                     ref={this.myInput}
                     required
                     placeholder="Store Name"
-                    defaultValue={getLocation()}
+                    // defaultValue={getLocation()}
                 />
                 <button type="submit">Visit Store -></button>
             </form>
