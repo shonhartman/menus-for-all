@@ -10,7 +10,10 @@ class Menu extends React.Component {
                 <h3 className="category">{name}
                     <span className="price">starting at {formatPrice(price)}</span>
                 </h3>
-                <article>{desc}</article>
+                {/* <article>{desc}</article> */}
+                <ul>
+                    {Object.keys(this.props.details.desc).map(key => <li key={key}>{this.props.details.desc[key]}</li>)}
+                </ul>
             </div>
         )
     }

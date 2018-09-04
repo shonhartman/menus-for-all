@@ -14,6 +14,7 @@ class ClientMenu extends React.Component {
     };
 
     componentDidMount() {
+        console.log("Mounted!")
         const { params } = this.props.match;
         this.ref = base.syncState(`${params.restaurantId}/menu`, {
             context: this,

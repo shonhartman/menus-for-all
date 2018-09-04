@@ -1,11 +1,25 @@
 import React from "react";
-import Menu from "./Menu"
 
 class AddMenuForm extends React.Component {
+
+    state = {
+        desc : []
+    }
+
     nameRef = React.createRef();
     priceRef = React.createRef();
     descRef = React.createRef();
-    imageRef = React.createRef();
+    // imageRef = React.createRef();
+
+    createItem = (event) => {
+        if(event.key == 'Tab') {
+            let desc = [...this.state.desc];
+            const item = this.descRef.current.value;
+            desc = this.state.desc.push(item);
+            this.setState([desc]);
+            this.descRef.current.value = "";
+        }
+    }
 
     createEntry = (event) => {
         // 1. stop the form from submitting
@@ -20,12 +34,15 @@ class AddMenuForm extends React.Component {
         const menuItem = {
             name: this.nameRef.current.value,
             price: numberPrice,
-            desc: this.descRef.current.value,
+            // desc: this.descRef.current.value,
+            desc: this.state.desc
             // image: this.imageRef.current.value
         };
         this.props.addMenuItem(menuItem);
         // refresh the form
         event.currentTarget.reset();
+        // refresh local state
+        this.state.desc = [];
     }
 
     render() {
@@ -38,7 +55,11 @@ class AddMenuForm extends React.Component {
                     <option value="available">Fresh!</option>
                     <option value="unavailable">Sold Out!</option>
                 </select> */}
-                <textarea name="desc" ref={this.descRef} placeholder="Desc"> </textarea>
+                {/* <textarea name="desc" ref={this.descRef} placeholder="Desc"> </textarea> */}
+                <input name="desc" ref={this.descRef} type="text" onKeyDown={this.createItem} />
+                <ul>
+                    {Object.keys(this.state.desc).map(key => <li key={key}>{this.state.desc[key]}</li>)}
+                </ul>
                 {/* <input name="image" type="text" ref={this.imageRef} placeholder="Image" /> */}
                 <button type="submit">+ Add To Menu</button>
             </form>

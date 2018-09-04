@@ -10,19 +10,15 @@ import Router from "./Router";
 
 class App extends React.Component {
     state = {
-        menu: {},
-        location: {},
+        menu: {}
     };
 
     componentDidMount() {
+        console.log("App Mounted!");
         const { params } = this.props.match;
         this.ref = base.syncState(`${params.restaurantId}/menu`, {
             context: this,
             state: 'menu'
-        });
-        this.ref = base.syncState(`${params.restaurantId}/menu`, {
-            context: this,
-            state: 'location'
         });
     }
 
